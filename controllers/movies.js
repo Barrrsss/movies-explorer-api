@@ -44,6 +44,8 @@ const postMovie = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequest('Вы не заполнили обязательные поля или данные не верны');
+      } else {
+        throw err;
       }
     })
     .catch(next);
@@ -58,7 +60,7 @@ const deleteMovie = (req, res, next) => {
       } else if (movie.owner.toString() !== req.user._id.toString()) {
         throw new Forbidden('Недостаточно прав для удаления фильма');
       } else {
-        Movies.findByIdAndRemove(movieId)
+        return Movies.findByIdAndRemove(movieId)
           .then(() => res.send({ message: 'Фильм удалён' }));
       }
     })
