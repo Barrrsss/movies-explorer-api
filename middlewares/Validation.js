@@ -34,9 +34,9 @@ const validateMovie = celebrate({
       .error(new Joi.ValidationError(wrongLink)),
     thumbnail: Joi.string().pattern(link).required()
       .error(new Joi.ValidationError(wrongLink)),
-    nameRU: Joi.string().min(2).max(30).required()
+    nameRU: Joi.string().min(2).required()
       .error(new Joi.ValidationError(wrongAbout)),
-    nameEN: Joi.string().min(2).max(30).required()
+    nameEN: Joi.string().min(2).required()
       .error(new Joi.ValidationError(wrongAbout)),
     movieId: Joi.number().required()
       .error(new Joi.ValidationError(wrongAbout)),
