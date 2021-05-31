@@ -18,9 +18,9 @@ const validateUser = celebrate({
 
 const validateMovie = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().min(2).max(30).required()
+    country: Joi.string().min(2).required()
       .error(new Joi.ValidationError(wrongAbout)),
-    director: Joi.string().min(2).max(30).required()
+    director: Joi.string().min(2).required()
       .error(new Joi.ValidationError(wrongAbout)),
     duration: Joi.number().required()
       .error(new Joi.ValidationError(wrongAbout)),
@@ -39,7 +39,7 @@ const validateMovie = celebrate({
     nameEN: Joi.string().min(2).required()
       .error(new Joi.ValidationError(wrongAbout)),
     movieId: Joi.number().required()
-      .error(new Joi.ValidationError(wrongAbout)),
+      .error(new Joi.ValidationError(wrongName)),
   }).unknown(true),
 });
 
